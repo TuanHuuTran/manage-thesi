@@ -1,0 +1,79 @@
+﻿<Window x:Class="ManageThesis_Project.Views.ChoosePoint"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManageThesis_Project.Views"
+        mc:Ignorable="d"
+        Title="ChoosePoint" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ItemsControl Grid.Row="0" HorizontalAlignment="Stretch" Name="ItemsControl1" ItemsSource="{Binding Task}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <RichTextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                           IsReadOnly="True" Margin="5" Padding="5" Background="#E0E0E0"
+                           BorderBrush="Gray" BorderThickness="1">
+                            <FlowDocument>
+
+                                <Paragraph>
+                                    <Run Text="Title: " />
+                                    <Run Text="{Binding Title}" />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Run Text="Description: " />
+                                    <Run Text="{Binding Description}" />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Run Text="Status: " />
+                                    <Run Text="{Binding Status}" />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Run Text="Start Date: " />
+                                    <Run Text="{Binding Start_Date}" />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Run Text="End Date: " />
+                                    <Run Text="{Binding End_Date}" />
+                                </Paragraph>
+                                <Paragraph>
+                                    <Run Text="Group Name: " />
+                                    <Run Text="{Binding Group.Name}" />
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <Grid Grid.Row="1">
+            <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5" Margin="73,40,252,52">
+                <Grid Margin="50,0,96,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="MessageTextBox" Grid.Column="0" Margin="10" BorderThickness="0"
+                     Background="White" Padding="10" VerticalAlignment="Center" 
+                     FontSize="14" FontFamily="Segoe UI" MinHeight="30" />
+                </Grid>
+            </Border>
+            <Button Margin="603,50,0,0" Content="Submit" Click="Button_Click"
+Background="#007ACC" Foreground="White" Padding="10"
+FontSize="14" FontFamily="Segoe UI" VerticalAlignment="Top"
+BorderThickness="0" MinHeight="40" Width="80"
+HorizontalAlignment="Left" />
+
+
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,58 @@
+﻿<Window x:Class="ManageThesis_Project.Views.Communicate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManageThesis_Project.Views"
+        mc:Ignorable="d"
+        Title="Communicate" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#F0F0F0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="MessageTextBox" Grid.Column="0" Margin="5" BorderThickness="0"
+             Background="White" Padding="10" VerticalAlignment="Center"
+             FontSize="14" FontFamily="Segoe UI" MinHeight="30"
+             BorderBrush="#CCCCCC" AcceptsReturn="True" />
+            <Button Grid.Column="1" Margin="5" Content="Send" Click="Button_Click"
+            Background="#007ACC" Foreground="White" Padding="10"
+            FontSize="14" FontFamily="Segoe UI" VerticalAlignment="Center"
+            BorderThickness="0" MinHeight="40" Width="80"
+            HorizontalAlignment="Right" />
+        </Grid>
+        <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"
+              BorderThickness="2" BorderBrush="Red" VerticalAlignment="Stretch" Name="ScrollViewer1">
+            <ItemsControl HorizontalAlignment="Stretch" Name="ItemsControl1"
+                  ItemsSource="{Binding Communications}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <RichTextBox Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                 IsReadOnly="True" Margin="5" Padding="5" Background="#E0E0E0"
+                                 BorderBrush="Gray" BorderThickness="1">
+                                <FlowDocument>
+                                    <Paragraph>
+                                        <Span>
+                                            <Run Text="{Binding Teacher.Name}" />
+                                            <Run Text="{Binding Student.Name}" />
+                                        </Span>
+                                    </Paragraph>
+                                    <Paragraph>
+                                        <Run Text="{Binding Message}" />
+                                    </Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+    </Grid>
+</Window>

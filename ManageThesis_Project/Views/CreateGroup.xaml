@@ -1,0 +1,24 @@
+﻿<Window x:Class="ManageThesis_Project.Views.CreateGroup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManageThesis_Project.Views"
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+              Title="Create Group" Height="200" Width="300">
+    <Grid Background="#F4F4F5">
+        <Border Background="#FFFFFF" BorderBrush="#E0E0E0" BorderThickness="1" CornerRadius="10" Margin="20">
+            <StackPanel Margin="10">
+                <!-- NameGroup Label -->
+                <Label Content="Name Group" FontSize="14" FontWeight="Bold" Margin="0 10 0 0"/>
+
+                <!-- NameGroup TextBox -->
+                <TextBox x:Name="inputTextBox" Width="200" Height="30" Margin="0 0 0 10" VerticalAlignment="Center"/>
+
+                <!-- Submit Button -->
+                <Button x:Name="submitButton" Content="Submit" Width="100" Height="30" Click="SubmitButton_Click" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
+
